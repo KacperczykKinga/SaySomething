@@ -1,0 +1,15 @@
+.add-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.all-posts {
+    position: absolute;
+    bottom: 90px;
+    right: 40px;
+}
+
+.all-posts button {
+    margin: 0 5px;
+}

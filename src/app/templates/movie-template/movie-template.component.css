@@ -1,0 +1,8 @@
+.dialog-content{
+    display: flex;
+    flex-direction: column;
+}
+
+label, mat-form-field, mat-radio-group {
+    width: 100%;
+}

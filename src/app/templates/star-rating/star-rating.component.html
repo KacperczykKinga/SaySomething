@@ -1,0 +1,5 @@
+<button mat-icon-button color="accent" *ngFor="let rate of ratesArray" (click)="onStarClick(rate)">
+    <mat-icon>
+      {{showIcon(rate)}}
+    </mat-icon>
+  </button>

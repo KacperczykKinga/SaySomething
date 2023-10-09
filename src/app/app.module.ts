@@ -12,12 +12,14 @@ import { FormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSelectModule} from '@angular/material/select';
+import { StarRatingComponent } from './templates/star-rating/star-rating.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AllButtonsComponent,
-    MovieTemplateComponent
+    MovieTemplateComponent,
+    StarRatingComponent
   ],
   imports: [
     BrowserModule,

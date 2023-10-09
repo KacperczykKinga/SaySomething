@@ -3,6 +3,11 @@
     flex-direction: column;
 }
 
-label, mat-form-field, mat-radio-group {
+.form-element{
+    display: flex;
+    flex-direction: row;
+}
+
+div, label, mat-form-field, mat-radio-group, blogs-star-rating {
     width: 100%;
 }

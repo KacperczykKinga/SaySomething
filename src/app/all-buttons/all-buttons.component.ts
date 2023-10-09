@@ -17,7 +17,9 @@ export class AllButtonsComponent {
     }
 
     showMovieTemplate() {
-        const dialogRef = this.dialog.open(MovieTemplateComponent);
+        const dialogRef = this.dialog.open(MovieTemplateComponent, {
+            width:'550px'
+        });
       
         dialogRef.afterClosed().subscribe(result => {
             console.log('The dialog was closed');

@@ -1,26 +1,26 @@
 <h1  mat-dialog-title>Say something about movie/TV series</h1>
 <mat-dialog-content class="dialog-content">
-    <div>
+    <div class="form-element">
         <label>Type</label>
         <mat-radio-group aria-label="Select a type" [(ngModel)]="type">
             <mat-radio-button [value]="filmType.MOVIE">{{filmType.MOVIE}}</mat-radio-button>
             <mat-radio-button [value]="filmType.TV_SERIES">{{filmType.TV_SERIES}}</mat-radio-button>
         </mat-radio-group>
     </div>
-    <div>
+    <div class="form-element">
         <label>Title</label>
         <mat-form-field>
             <input matInput/>
         </mat-form-field>
     </div>
     <div *ngIf="type === filmType.MOVIE">
-        <div>
+        <div class="form-element">
             <label>Duration in minutes</label>
             <mat-form-field>
                 <input matInput type="number"/>
             </mat-form-field>
         </div>
-        <div>
+        <div class="form-element">
             <label>Watched on:</label>
             <mat-form-field>
                 <mat-select>
@@ -28,7 +28,7 @@
                 </mat-select>
             </mat-form-field>
         </div>
-        <div>
+        <div class="form-element">
             <label>Film genre:</label>
             <mat-form-field>
                 <mat-select>
@@ -36,7 +36,7 @@
                 </mat-select>
             </mat-form-field>
         </div>
-        <div>
+        <div class="form-element">
             <label>Rate:</label>
             <blogs-star-rating></blogs-star-rating>
         </div>

@@ -1,5 +1,5 @@
 <h1  mat-dialog-title>Say something about movie/TV series</h1>
-<mat-dialog-content class="dialog-content">
+<mat-dialog-content>
     <div class="form-element">
         <label>Type</label>
         <mat-radio-group aria-label="Select a type" [(ngModel)]="type">
@@ -13,21 +13,7 @@
             <input matInput/>
         </mat-form-field>
     </div>
-    <div *ngIf="type === filmType.MOVIE">
-        <div class="form-element">
-            <label>Duration in minutes</label>
-            <mat-form-field>
-                <input matInput type="number"/>
-            </mat-form-field>
-        </div>
-        <div class="form-element">
-            <label>Watched on:</label>
-            <mat-form-field>
-                <mat-select>
-                    <mat-option *ngFor="let option of watchOptions" value="option">{{option}}</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
+    <div *ngIf="type === filmType.MOVIE, else tvSeries">
         <div class="form-element">
             <label>Film genre:</label>
             <mat-form-field>
@@ -37,14 +23,49 @@
             </mat-form-field>
         </div>
         <div class="form-element">
-            <label>Rate:</label>
-            <blogs-star-rating></blogs-star-rating>
-        </div>
-        <div>
-            <label>Descriptive review</label>
+            <label>Duration in minutes</label>
             <mat-form-field>
-                <textarea matInput></textarea>
+                <input matInput type="number" min="1" step="1" oninput="validity.valid||(value='');"/>
             </mat-form-field>
         </div>
     </div>
+    <div class="form-element">
+        <label>Watched on:</label>
+        <mat-form-field>
+            <mat-select>
+                <mat-option *ngFor="let option of watchOptions" value="option">{{option}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="form-element">
+        <label>Rate:</label>
+        <blogs-star-rating></blogs-star-rating>
+    </div>
+    <div>
+        <label>Descriptive review</label>
+        <mat-form-field>
+            <textarea matInput></textarea>
+        </mat-form-field>
+    </div>
 </mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-stroked-button color="accent" cdkFocusInitial>Save</button>
+    <button mat-stroked-button color="accent" (click)="onCancel()">Cancel</button>
+</mat-dialog-actions>
+
+<ng-template #tvSeries>
+    <div class="form-element">
+        <label>TV Series genre:</label>
+        <mat-form-field>
+            <mat-select>
+                <mat-option *ngFor="let genre of filmGenres" value="genre">{{genre}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="form-element">
+        <label>Number of seasons</label>
+        <mat-form-field>
+            <input matInput type="number" min="1" step="1" oninput="validity.valid||(value='');"/>
+        </mat-form-field>
+    </div>
+</ng-template>

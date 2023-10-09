@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { MatDialogRef } from "@angular/material/dialog";
 
 enum FilmType {
     MOVIE = "Movie",
@@ -40,5 +41,11 @@ export class MovieTemplateComponent{
 
     get filmType(): typeof FilmType {
         return FilmType;
+    }
+
+    constructor(public dialogRef: MatDialogRef<MovieTemplateComponent>) {}
+    
+    onCancel(): void {
+        this.dialogRef.close();
     }
 }

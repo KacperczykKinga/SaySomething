@@ -15,7 +15,7 @@
     </div>
     <div *ngIf="movie.type === filmType.MOVIE, else tvSeries">
         <div class="form-element">
-            <label>Film genre:</label>
+            <label>Film genre</label>
             <mat-form-field>
                 <mat-select [(ngModel)]="movie.genre">
                     <mat-option *ngFor="let genre of filmGenres" [value]="genre">{{genre}}</mat-option>
@@ -30,7 +30,7 @@
         </div>
     </div>
     <div class="form-element">
-        <label>Watched on:</label>
+        <label>Watched on</label>
         <mat-form-field>
             <mat-select [(ngModel)]="movie.watchedOn">
                 <mat-option *ngFor="let option of watchOptions" [value]="option">{{option}}</mat-option>
@@ -38,7 +38,7 @@
         </mat-form-field>
     </div>
     <div class="form-element">
-        <label>Rate:</label>
+        <label>Rate</label>
         <blogs-star-rating></blogs-star-rating>
     </div>
     <div>
@@ -56,7 +56,7 @@
 
 <ng-template #tvSeries>
     <div class="form-element">
-        <label>TV Series genre:</label>
+        <label>TV Series genre</label>
         <mat-form-field>
             <mat-select [(ngModel)]="movie.genre">
                 <mat-option *ngFor="let genre of filmGenres" value="genre">{{genre}}</mat-option>
@@ -65,8 +65,8 @@
     </div>
     <div class="form-element">
         <label>Number of seasons</label>
-        <mat-form-field [(ngModel)]="movie.seasonsNumber">
-            <input matInput type="number" min="1" step="1" oninput="validity.valid||(value='');"/>
+        <mat-form-field>
+            <input matInput type="number" min="1" step="1" oninput="validity.valid||(value='');" [(ngModel)]="movie.seasonsNumber"/>
         </mat-form-field>
     </div>
 </ng-template>

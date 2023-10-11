@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
-import { MovieTemplateComponent } from "../templates/movie-template/movie-template.component";
+import { MovieTemplateComponent } from "../movie/movie-template/movie-template.component";
 
 @Component({
     selector: 'all-buttons',

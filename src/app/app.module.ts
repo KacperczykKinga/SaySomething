@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { AllButtonsComponent } from './all-buttons/all-buttons.component';
-import { MovieTemplateComponent } from './templates/movie-template/movie-template.component';
+import { MovieTemplateComponent } from './movie/movie-template/movie-template.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatRadioModule} from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
@@ -13,6 +13,7 @@ import {MatInputModule} from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSelectModule} from '@angular/material/select';
 import { StarRatingComponent } from './templates/star-rating/star-rating.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { StarRatingComponent } from './templates/star-rating/star-rating.compone
     FormsModule,
     MatInputModule,
     BrowserAnimationsModule,
-    MatSelectModule
+    MatSelectModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

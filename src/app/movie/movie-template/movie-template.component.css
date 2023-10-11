@@ -7,10 +7,6 @@ div, label, mat-form-field, mat-radio-group, blogs-star-rating {
     width: 100%;
 }
 
-mat-dialog-actions{
-    align-items: center;
-}
-
 button {
     padding: 20px;
 }

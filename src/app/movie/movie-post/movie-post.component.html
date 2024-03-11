@@ -1,0 +1,25 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{movie.title}}</mat-card-title>
+      <mat-card-subtitle>{{movie.type}}, {{movie.genre}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div *ngIf="movie.type === filmType.MOVIE, else tvSeries">
+            <div>{{movie.duration}}</div>
+            <div>{{movie.watchedOn}}</div>
+            <div>{{movie.review}}</div>
+            <div>{{movie.rate}}</div>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>Like</button>
+      <button mat-button>Edit</button>
+    </mat-card-actions>
+  </mat-card>
+
+<ng-template #tvSeries>
+    <div>{{movie.seasonsNumber}}</div>
+    <div>{{movie.watchedOn}}</div>
+    <div>{{movie.review}}</div>
+    <div>{{movie.rate}}</div>
+</ng-template>

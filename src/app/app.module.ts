@@ -14,12 +14,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSelectModule} from '@angular/material/select';
 import { StarRatingComponent } from './templates/star-rating/star-rating.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MoviePostComponent } from './movie/movie-post/movie.post.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
     AppComponent,
     AllButtonsComponent,
     MovieTemplateComponent,
+    MoviePostComponent,
     StarRatingComponent
   ],
   imports: [
@@ -33,6 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     BrowserAnimationsModule,
     MatSelectModule,
+    MatCardModule,
     HttpClientModule
   ],
   providers: [],

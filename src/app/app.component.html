@@ -1,4 +1,7 @@
 <mat-toolbar color="primary">
   <span>Say Something!</span>
 </mat-toolbar>
+<div>
+  <movie-post *ngFor="let post of allPosts" [movie]="post"></movie-post>
+</div>
 <all-buttons></all-buttons>

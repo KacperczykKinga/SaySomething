@@ -2,7 +2,7 @@
 <mat-dialog-content>
     <div class="form-element">
         <label>Type</label>
-        <mat-radio-group aria-label="Select a type" [value]="movie.type" (change)="onTypeChange()" >
+        <mat-radio-group aria-label="Select a type" [value]="movie.type" (change)="onTypeChange($event)" >
             <mat-radio-button [value]="filmType.MOVIE">{{filmType.MOVIE}}</mat-radio-button>
             <mat-radio-button [value]="filmType.TV_SERIES">{{filmType.TV_SERIES}}</mat-radio-button>
         </mat-radio-group>
@@ -59,7 +59,7 @@
         <label>TV Series genre</label>
         <mat-form-field>
             <mat-select [(ngModel)]="movie.genre">
-                <mat-option *ngFor="let genre of filmGenres" value="genre">{{genre}}</mat-option>
+                <mat-option *ngFor="let genre of filmGenres" [value]="genre">{{genre}}</mat-option>
             </mat-select>
         </mat-form-field>
     </div>

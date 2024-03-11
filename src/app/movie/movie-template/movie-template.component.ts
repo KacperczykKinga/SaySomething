@@ -24,8 +24,8 @@ export class MovieTemplateComponent{
         this.dialogRef.close();
     }
 
-    onTypeChange(): void {
-        this.movie = {type: this.movie.type}
+    onTypeChange(typeEvent: MatRadioChange): void {
+        this.movie = {type: typeEvent.value}
     }
 
     onSave() {

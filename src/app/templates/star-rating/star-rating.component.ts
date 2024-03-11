@@ -31,24 +31,23 @@ export class StarRatingComponent implements ControlValueAccessor{
     }
 
     set chosenRate(val: number){
-        if( val !== undefined && this.chosenRateValue !== val){
+      if( val !== undefined && this.chosenRateValue !== val){
         this.chosenRateValue = val
         this.onChange(val)
         this.onTouch(val)
-        }
-       
       }
+    }
     
-      writeValue(value: number): void{
-        this.chosenRate = value
-      }
+    writeValue(value: number): void{
+      this.chosenRate = value
+    }
     
-      registerOnChange(fn: any): void{
-        this.onChange = fn
-      }
+    registerOnChange(fn: any): void{
+      this.onChange = fn
+    }
     
-      registerOnTouched(fn: any): void{
-        this.onTouch = fn
-      }
+    registerOnTouched(fn: any): void{
+      this.onTouch = fn
+    }
     
 }

@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
-import { Component } from "@angular/core";
+import { Component, Inject, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
-import { MatDialogRef } from "@angular/material/dialog";
+import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { MatRadioChange } from "@angular/material/radio";
 import { FilmGenre, FilmType, Movie, WatchOption } from "../movie";
 
@@ -9,17 +9,25 @@ import { FilmGenre, FilmType, Movie, WatchOption } from "../movie";
     templateUrl: './movie-template.component.html',
     styleUrls: ['./movie-template.component.css']
 })
-export class MovieTemplateComponent{
+export class MovieTemplateComponent implements OnInit {
     filmGenres = Object.values(FilmGenre)
     watchOptions = Object.values(WatchOption)
     movie: Movie = {type: FilmType.MOVIE};
+    editMode = false;
 
     get filmType(): typeof FilmType {
         return FilmType;
     }
 
-    constructor(public dialogRef: MatDialogRef<MovieTemplateComponent>, private httpClient: HttpClient) {}
+    constructor(public dialogRef: MatDialogRef<MovieTemplateComponent>, private httpClient: HttpClient, @Inject(MAT_DIALOG_DATA) public data: Movie) {}
     
+    ngOnInit(): void {
+        if(this.data) {
+            this.movie = this.data;
+            this.editMode = true;
+        }
+    }
+
     onCancel(): void {
         this.dialogRef.close();
     }

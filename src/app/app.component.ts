@@ -17,7 +17,7 @@ export class AppComponent {
     this.httpClient.get("https://saysomething-a52a6-default-rtdb.firebaseio.com/movies.json").pipe(map(responseData => {
       const posts = [];
       for (const key in responseData) {
-        posts.push(responseData[key])
+        posts.push({...responseData[key], id: key})
       }
       return posts;
     } )).subscribe(posts => {

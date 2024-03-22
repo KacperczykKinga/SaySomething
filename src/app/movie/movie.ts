@@ -7,6 +7,7 @@ export interface Movie {
     watchedOn?: WatchOption,
     rate?: number,
     review?: string,
+    id?: string
 }
 
 export enum FilmType {

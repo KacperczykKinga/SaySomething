@@ -4,12 +4,12 @@
       <mat-card-subtitle>{{movie.type}}, {{movie.genre}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-        <div *ngIf="movie.type === filmType.MOVIE, else tvSeries">
-            <div>{{movie.duration}}</div>
-            <div>{{movie.watchedOn}}</div>
-            <div>{{movie.review}}</div>
-            <div>{{movie.rate}}</div>
-        </div>
+        <span *ngIf="movie.type === filmType.MOVIE, else tvSeries">
+            <div>Minutes: {{movie.duration}}, Watched on: {{movie.watchedOn}}</div>
+        </span>
+        <blogs-star-rating [ngModel] = "movie.rate"></blogs-star-rating>
+        <div>Review</div>
+        <div>{{movie.review}}</div>
     </mat-card-content>
     <mat-card-actions>
       <button mat-button>Like</button>
@@ -18,8 +18,5 @@
   </mat-card>
 
 <ng-template #tvSeries>
-    <div>{{movie.seasonsNumber}}</div>
-    <div>{{movie.watchedOn}}</div>
-    <div>{{movie.review}}</div>
-    <div>{{movie.rate}}</div>
+    <div>Seasons: {{movie.seasonsNumber}}, Watched on: {{movie.watchedOn}}</div>
 </ng-template>

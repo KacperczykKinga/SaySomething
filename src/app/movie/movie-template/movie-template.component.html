@@ -1,8 +1,9 @@
 <h1  mat-dialog-title>Say something about movie/TV series</h1>
 <mat-dialog-content>
+    <form [formGroup]="movieForm">
     <div class="form-element">
         <label>Type</label>
-        <mat-radio-group aria-label="Select a type" [value]="movie.type" (change)="onTypeChange($event)" >
+        <mat-radio-group aria-label="Select a type" formControlName="type" (change)="onTypeChange($event)" >
             <mat-radio-button [value]="filmType.MOVIE">{{filmType.MOVIE}}</mat-radio-button>
             <mat-radio-button [value]="filmType.TV_SERIES">{{filmType.TV_SERIES}}</mat-radio-button>
         </mat-radio-group>
@@ -10,63 +11,50 @@
     <div class="form-element">
         <label>Title</label>
         <mat-form-field>
-            <input matInput [(ngModel)]="movie.title"/>
+            <input matInput formControlName="title"/>
         </mat-form-field>
     </div>
-    <div *ngIf="movie.type === filmType.MOVIE, else tvSeries">
-        <div class="form-element">
-            <label>Film genre</label>
-            <mat-form-field>
-                <mat-select [(ngModel)]="movie.genre">
-                    <mat-option *ngFor="let genre of filmGenres" [value]="genre">{{genre}}</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-        <div class="form-element">
-            <label>Duration in minutes</label>
-            <mat-form-field>
-                <input matInput type="number" min="1" step="1" oninput="validity.valid||(value='');" [(ngModel)]="movie.duration"/>
-            </mat-form-field>
-        </div>
+    <div class="form-element">
+        <label>{{movieForm.getRawValue().type === filmType.MOVIE ? 'Film genre' : 'TV Series genre' }}</label>
+        <mat-form-field>
+            <mat-select formControlName="genre">
+                <mat-option *ngFor="let genre of filmGenres" [value]="genre">{{genre}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div *ngIf="movieForm.getRawValue().type === filmType.MOVIE" class="form-element">
+        <label>Duration in minutes</label>
+        <mat-form-field>
+            <input matInput type="number" min="1" step="1" oninput="validity.valid||(value='');" formControlName="duration"/>
+        </mat-form-field>
+    </div>
+    <div *ngIf="movieForm.getRawValue().type === filmType.TV_SERIES" class="form-element">
+        <label>Number of seasons</label>
+        <mat-form-field>
+            <input matInput type="number" min="1" step="1" oninput="validity.valid||(value='');" formControlName="seasonsNumber"/>
+        </mat-form-field>
     </div>
     <div class="form-element">
         <label>Watched on</label>
         <mat-form-field>
-            <mat-select [(ngModel)]="movie.watchedOn">
+            <mat-select formControlName="watchedOn">
                 <mat-option *ngFor="let option of watchOptions" [value]="option">{{option}}</mat-option>
             </mat-select>
         </mat-form-field>
     </div>
     <div class="form-element">
         <label>Rate</label>
-        <blogs-star-rating [(ngModel)]="movie.rate"></blogs-star-rating>
+        <blogs-star-rating formControlName="rate"></blogs-star-rating>
     </div>
     <div>
         <label>Descriptive review</label>
         <mat-form-field>
-            <textarea matInput [(ngModel)]="movie.review"></textarea>
+            <textarea matInput formControlName="review"></textarea>
         </mat-form-field>
     </div>
-
+    </form>
 </mat-dialog-content>
 <mat-dialog-actions align="center">
-    <button mat-stroked-button color="accent" type="button" cdkFocusInitial (click)="onSave()">{{ editMode ? 'Update' : 'Save'}}</button>
+    <button mat-stroked-button color="accent" type="button" cdkFocusInitial (click)="onSave()"  [disabled]="movieForm.invalid">{{ editMode ? 'Update' : 'Save'}}</button>
     <button mat-stroked-button color="accent" type="button" (click)="onCancel()">Cancel</button>
 </mat-dialog-actions>
-
-<ng-template #tvSeries>
-    <div class="form-element">
-        <label>TV Series genre</label>
-        <mat-form-field>
-            <mat-select [(ngModel)]="movie.genre">
-                <mat-option *ngFor="let genre of filmGenres" [value]="genre">{{genre}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div>
-    <div class="form-element">
-        <label>Number of seasons</label>
-        <mat-form-field>
-            <input matInput type="number" min="1" step="1" oninput="validity.valid||(value='');" [(ngModel)]="movie.seasonsNumber"/>
-        </mat-form-field>
-    </div>
-</ng-template>

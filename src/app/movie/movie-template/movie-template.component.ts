@@ -30,7 +30,7 @@ export class MovieTemplateComponent implements OnInit {
     }
 
     onCancel(): void {
-        this.dialogRef.close();
+        this.dialogRef.close();      
     }
 
     onTypeChange(typeEvent: MatRadioChange): void {

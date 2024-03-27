@@ -1,9 +1,10 @@
-import { Component, forwardRef } from "@angular/core";
+import { Component, forwardRef, Input } from "@angular/core";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
     selector: 'blogs-star-rating',
     templateUrl: './star-rating.component.html',
+    styleUrls: ['./star-rating.component.scss'],
     providers: [
         {
           provide: NG_VALUE_ACCESSOR,
@@ -13,13 +14,16 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
       ]
 })
 export class StarRatingComponent implements ControlValueAccessor{
+    @Input() public disabled: boolean = false;
     ratesArray = [1, 2, 3, 4, 5];
     chosenRateValue = 0;
     onChange: any = () => {}
     onTouch: any = () => {}
 
     onStarClick(clickedStar: number): void {
+      if(!this.disabled) {
         this.chosenRate = clickedStar;
+      }
     }
 
     showIcon(rate: number) {
@@ -49,5 +53,8 @@ export class StarRatingComponent implements ControlValueAccessor{
     registerOnTouched(fn: any): void{
       this.onTouch = fn
     }
-    
+
+    setDisabledState(isDisabled: boolean): void {
+      this.disabled = isDisabled;
+    }    
 }

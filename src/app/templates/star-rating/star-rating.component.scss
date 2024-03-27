@@ -1,0 +1,14 @@
+.active {
+    cursor: pointer;
+}
+
+.not-active {
+    cursor: default;
+ }
+
+
+:host ::ng-deep {
+    .mat-mdc-icon-button .mat-mdc-button-ripple, .mat-mdc-icon-button .mat-mdc-button-persistent-ripple, .mat-mdc-icon-button .mat-mdc-button-persistent-ripple::before {
+        display: none;  
+    }
+}

@@ -7,7 +7,7 @@
         <span *ngIf="movie.type === filmType.MOVIE, else tvSeries">
             <div>Minutes: {{movie.duration}}, Watched on: {{movie.watchedOn}}</div>
         </span>
-        <blogs-star-rating [ngModel] = "movie.rate"></blogs-star-rating>
+        <blogs-star-rating [ngModel] = "movie.rate" [disabled]="true"></blogs-star-rating>
         <div>Review</div>
         <div>{{movie.review}}</div>
     </mat-card-content>

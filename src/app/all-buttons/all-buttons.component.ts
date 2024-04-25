@@ -12,11 +12,12 @@ export class AllButtonsComponent {
 
     constructor(public dialog: MatDialog) {}
 
-    checkShowingPossiblePosts() : void {
+    changeShowingPossiblePosts() : void {
       this.showPossiblePosts = !this.showPossiblePosts;
     }
 
     showMovieTemplate() {
+        this.showPossiblePosts = false;
         const dialogRef = this.dialog.open(MovieTemplateComponent, {
             width:'550px',
             disableClose: true

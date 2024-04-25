@@ -16,6 +16,8 @@ import { StarRatingComponent } from './templates/star-rating/star-rating.compone
 import { HttpClientModule } from '@angular/common/http';
 import { MoviePostComponent } from './movie/movie-post/movie.post.component';
 import {MatCardModule} from '@angular/material/card';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import {MatCardModule} from '@angular/material/card';
     MatSelectModule,
     MatCardModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

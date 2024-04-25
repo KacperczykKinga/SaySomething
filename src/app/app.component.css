@@ -1,5 +1,24 @@
+.main-page {
+    display: flex;
+    align-items: start;
+}
+
+.posts {
+    width: 80%;
+}
+
 movie-post {
     margin: 5px;
     display: block;
-    max-width: 80%;
+}
+
+.calendar {
+    width: 20%;
+    margin: 5px;
+}
+
+mat-calendar ::ng-deep  {
+    .mat-calendar-controls, .mat-calendar-table-header {
+    display: none;
+}
 }

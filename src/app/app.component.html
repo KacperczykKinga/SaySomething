@@ -1,5 +1,12 @@
 <mat-toolbar color="primary">
   <span>Say Something!</span>
 </mat-toolbar>
-<movie-post *ngFor="let post of allPosts" [movie]="post"></movie-post>
+<div class="main-page">
+  <div class="posts">
+    <movie-post *ngFor="let post of allPosts" [movie]="post"></movie-post>
+  </div>
+<mat-card class="calendar">
+  <mat-calendar [selected]="today" [minDate]="today" [maxDate]="today"></mat-calendar>
+</mat-card>
+</div>
 <all-buttons></all-buttons>

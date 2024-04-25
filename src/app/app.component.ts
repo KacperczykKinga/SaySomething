@@ -8,6 +8,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  today = new Date();
   title = 'blogs';
   allPosts = []
 

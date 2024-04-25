@@ -6,6 +6,7 @@
     <movie-post *ngFor="let post of allPosts" [movie]="post"></movie-post>
   </div>
 <mat-card class="calendar">
+  <label class="calendar-label">{{monthAndYear | uppercase}}</label>
   <mat-calendar [selected]="today" [minDate]="today" [maxDate]="today"></mat-calendar>
 </mat-card>
 </div>

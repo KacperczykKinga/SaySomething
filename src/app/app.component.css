@@ -15,10 +15,24 @@ movie-post {
 .calendar {
     width: 20%;
     margin: 5px;
+    position: relative;
 }
 
 mat-calendar ::ng-deep  {
     .mat-calendar-controls, .mat-calendar-table-header {
     display: none;
 }
+    .mat-calendar-body-label {
+        opacity: 0;
+    }
+}
+
+.calendar-label {
+    position: absolute;
+    text-align: left;
+    top: 4%;
+    left: 4%;
+    font-size: var(--mat-datepicker-calendar-body-label-text-size);
+    font-weight: var(--mat-datepicker-calendar-body-label-text-weight);
+    color: var(--mat-datepicker-calendar-body-label-text-color);
 }

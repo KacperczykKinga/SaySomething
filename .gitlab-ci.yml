@@ -1,4 +1,5 @@
 Build:
+  image: node:24
   stage: build
   script:
     - npm install

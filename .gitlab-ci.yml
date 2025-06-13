@@ -4,7 +4,7 @@ Build:
   script:
     - npm install
     - npm run build
-    - echo "Done"
+    - echo "Done 2"
   artifacts:
     paths:
       - build
